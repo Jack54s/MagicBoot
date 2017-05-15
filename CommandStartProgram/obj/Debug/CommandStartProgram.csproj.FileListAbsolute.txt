@@ -1,0 +1,10 @@
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\bin\Debug\CommandStartProgram.exe.config
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\bin\Debug\CommandStartProgram.exe
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\bin\Debug\CommandStartProgram.pdb
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.csprojResolveAssemblyReference.cache
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.addCommand.resources
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.MainForm.resources
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.Properties.Resources.resources
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.csproj.GenerateResource.Cache
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.exe
+c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.pdb
