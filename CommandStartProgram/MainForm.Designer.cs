@@ -46,7 +46,7 @@
             this.command.Name = "command";
             this.command.Size = new System.Drawing.Size(271, 27);
             this.command.TabIndex = 0;
-            this.command.KeyDown += new System.Windows.Forms.KeyEventHandler(this.command_KeyDown);
+            this.command.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.command_Press);
             // 
             // Console
             // 

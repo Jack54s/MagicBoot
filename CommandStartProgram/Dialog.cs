@@ -5,11 +5,19 @@ namespace CommandStartProgram
 {
     public partial class addCommand : Form
     {
+        HintDialog hi;  //提示框
+
         public addCommand()
         {
             InitializeComponent();
+            hi = new HintDialog();
         }
 
+        /// <summary>
+        /// 选择程序label点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectProgram_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
@@ -24,18 +32,25 @@ namespace CommandStartProgram
             }
         }
 
+        /// <summary>
+        /// 添加命令按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addProgram_Click(object sender, EventArgs e)
         {
             String command = Command.Text;
             String fileName = openFileDialog1.FileName;
             if (command == "")
             {
-                MessageBox.Show("请输入指令！");
+                hi.setHint("请输入指令！");
+                hi.Show();
                 return;
             }
             if (fileName == "")
             {
-                MessageBox.Show("请选择程序！");
+                hi.setHint("请选择程序！");
+                hi.Show();
                 return;
             }
             LoadConfig writeConfig = new LoadConfig(Application.StartupPath + @"\command.ini");
@@ -44,16 +59,18 @@ namespace CommandStartProgram
             {
                 if (writeConfig.ReadIni("Command List", comm) != "")
                 {
-                    DialogResult dr = MessageBox.Show("指令已存在，是否覆盖？", "咒语混淆了？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show("指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if(dr == DialogResult.OK)
                     {
                         writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
+                        hi.Close();
                         this.Close();
                     }
                 }
                 else
                 {
                     writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
+                    hi.Close();
                     this.Close();
                 }
             }
