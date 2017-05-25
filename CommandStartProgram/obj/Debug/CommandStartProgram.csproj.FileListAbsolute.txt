@@ -8,3 +8,4 @@ c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\Command
 c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.csproj.GenerateResource.Cache
 c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.exe
 c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.pdb
+C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.Set.resources
