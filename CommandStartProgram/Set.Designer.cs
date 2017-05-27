@@ -33,6 +33,8 @@
             this.HotKeyText = new System.Windows.Forms.TextBox();
             this.Confirm = new System.Windows.Forms.Button();
             this.addCommand = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.Apply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startWithBoot
@@ -49,26 +51,30 @@
             // 
             // HotKey
             // 
-            this.HotKey.AutoSize = true;
             this.HotKey.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HotKey.Location = new System.Drawing.Point(98, 7);
+            this.HotKey.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.HotKey.Name = "HotKey";
-            this.HotKey.Size = new System.Drawing.Size(58, 20);
+            this.HotKey.Size = new System.Drawing.Size(58, 23);
             this.HotKey.TabIndex = 4;
             this.HotKey.Text = "快捷键:";
+            this.HotKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // HotKeyText
             // 
-            this.HotKeyText.Location = new System.Drawing.Point(160, 4);
-            this.HotKeyText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HotKeyText.Location = new System.Drawing.Point(155, 4);
+            this.HotKeyText.Margin = new System.Windows.Forms.Padding(0, 4, 3, 4);
             this.HotKeyText.Name = "HotKeyText";
+            this.HotKeyText.ReadOnly = true;
             this.HotKeyText.Size = new System.Drawing.Size(188, 27);
             this.HotKeyText.TabIndex = 5;
+            this.HotKeyText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyText_KeyDown);
+            this.HotKeyText.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeyText_KeyUp);
             // 
             // Confirm
             // 
             this.Confirm.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Confirm.Location = new System.Drawing.Point(145, 59);
+            this.Confirm.Location = new System.Drawing.Point(59, 57);
             this.Confirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(57, 27);
@@ -80,21 +86,43 @@
             // addCommand
             // 
             this.addCommand.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.addCommand.Location = new System.Drawing.Point(8, 35);
+            this.addCommand.Location = new System.Drawing.Point(8, 28);
             this.addCommand.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.addCommand.Name = "addCommand";
-            this.addCommand.Size = new System.Drawing.Size(83, 25);
+            this.addCommand.Size = new System.Drawing.Size(78, 29);
             this.addCommand.TabIndex = 7;
             this.addCommand.Text = "添加命令";
             this.addCommand.UseVisualStyleBackColor = true;
             this.addCommand.Click += new System.EventHandler(this.addCommand_Click);
+            // 
+            // Cancel
+            // 
+            this.Cancel.Location = new System.Drawing.Point(133, 57);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(57, 27);
+            this.Cancel.TabIndex = 8;
+            this.Cancel.Text = "取消";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
+            // Apply
+            // 
+            this.Apply.Location = new System.Drawing.Point(238, 57);
+            this.Apply.Name = "Apply";
+            this.Apply.Size = new System.Drawing.Size(57, 27);
+            this.Apply.TabIndex = 9;
+            this.Apply.Text = "应用";
+            this.Apply.UseVisualStyleBackColor = true;
+            this.Apply.Click += new System.EventHandler(this.Apply_Click);
             // 
             // Set
             // 
             this.AcceptButton = this.Confirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 88);
+            this.ClientSize = new System.Drawing.Size(349, 88);
+            this.Controls.Add(this.Apply);
+            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.addCommand);
             this.Controls.Add(this.Confirm);
             this.Controls.Add(this.HotKeyText);
@@ -116,5 +144,7 @@
         private System.Windows.Forms.TextBox HotKeyText;
         private System.Windows.Forms.Button Confirm;
         private System.Windows.Forms.Button addCommand;
+        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button Apply;
     }
 }

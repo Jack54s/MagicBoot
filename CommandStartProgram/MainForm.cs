@@ -46,7 +46,7 @@ namespace CommandStartProgram
             MouseEventArgs Mouse_e = (MouseEventArgs) e;
             if (Mouse_e.Button == MouseButtons.Left)
             {
-                this.Visible = true;
+                this.Show();
                 this.WindowState = FormWindowState.Normal;
             }
             
@@ -59,7 +59,7 @@ namespace CommandStartProgram
         /// <param name="e"></param>
         private void Console_Display(object sender, EventArgs e)
         {
-            this.Visible = true;
+            this.Show();
             this.WindowState = FormWindowState.Normal;
         }
 

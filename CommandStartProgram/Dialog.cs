@@ -41,7 +41,7 @@ namespace CommandStartProgram
         {
             String command = Command.Text;
             String fileName = openFileDialog1.FileName;
-            if (command == "")
+            if (command.Trim() == "")
             {
                 hi.setHint("请输入指令！");
                 hi.Show();
@@ -57,6 +57,10 @@ namespace CommandStartProgram
             String[] commandArray = command.Split('|');
             foreach(String comm in commandArray)
             {
+                if(comm.Trim() == "")
+                {
+                    break;
+                }
                 if (writeConfig.ReadIni("Command List", comm) != "")
                 {
                     DialogResult dr = MessageBox.Show("指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
