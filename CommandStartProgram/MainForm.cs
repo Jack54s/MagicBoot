@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
 using System.IO;
 
 namespace CommandStartProgram
@@ -23,6 +16,44 @@ namespace CommandStartProgram
             InitializeComponent();
             config = new LoadConfig(Application.StartupPath + @"\command.ini");
             hi = new HintDialog();
+            SetHotkey(config, Handle);
+        }
+
+        public static void SetHotkey(LoadConfig config, IntPtr handle)
+        {
+            HotKey.UnregisterHotKey(handle, 100);
+            int hotkeycode = (config.ReadIni("Set", "Ctrl") == "True" ? 100 : 0) + (config.ReadIni("Set", "Alt") == "True" ? 10 : 0) + (config.ReadIni("Set", "Shift") == "True" ? 1 : 0);
+            Keys vk = (Keys)Enum.Parse(typeof(Keys), config.ReadIni("Set", "KeyCode"));
+            switch (hotkeycode)
+            {
+                case 0:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.None, vk);
+                    break;
+                case 1:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Shift, vk);
+                    break;
+                case 10:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Alt, vk);
+                    break;
+                case 11:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Alt | HotKey.KeyModifiers.Shift, vk);
+                    break;
+                case 100:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl, vk);
+                    break;
+                case 101:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Shift, vk);
+                    break;
+                case 110:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Alt, vk);
+                    break;
+                case 111:
+                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Alt | HotKey.KeyModifiers.Shift, vk);
+                    break;
+                default:
+                    MessageBox.Show("肯定有什么地方错了，嗯~");
+                    break;
+            }
         }
 
         /// <summary>
@@ -33,6 +64,7 @@ namespace CommandStartProgram
         private void MenuExit(object sender, EventArgs e)
         {
             hi.Close();
+            HotKey.UnregisterHotKey(Handle, 100);
             Application.Exit();
         }
 
@@ -81,7 +113,7 @@ namespace CommandStartProgram
         /// <param name="e"></param>
         private void Set_Click(object sender, EventArgs e)
         {
-            Set set = new Set();
+            Set set = new Set(config);
             set.Show();
         }
 
@@ -115,6 +147,25 @@ namespace CommandStartProgram
                     hi.Show();
                 }
             }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_HOTKEY = 0x0312;//如果m.Msg的值为0x0312那么表示用户按下了热键
+            switch (m.Msg)
+            {
+                case WM_HOTKEY:
+                    switch (m.WParam.ToString())
+                    {
+                        case "100":
+                            this.Console_Display(new object(), new EventArgs());
+                            break;
+                        default: break;
+                    }
+                    break;
+                default: break;
+            }
+            base.WndProc(ref m);
         }
     }
 }

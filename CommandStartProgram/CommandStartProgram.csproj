@@ -58,6 +58,7 @@
     <Compile Include="HintDialog.Designer.cs">
       <DependentUpon>HintDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="HotKey.cs" />
     <Compile Include="LoadConfig.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

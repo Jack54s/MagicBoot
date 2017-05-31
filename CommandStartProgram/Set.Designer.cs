@@ -66,7 +66,7 @@
             this.HotKeyText.Margin = new System.Windows.Forms.Padding(0, 4, 3, 4);
             this.HotKeyText.Name = "HotKeyText";
             this.HotKeyText.ReadOnly = true;
-            this.HotKeyText.Size = new System.Drawing.Size(188, 27);
+            this.HotKeyText.Size = new System.Drawing.Size(173, 27);
             this.HotKeyText.TabIndex = 5;
             this.HotKeyText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyText_KeyDown);
             this.HotKeyText.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeyText_KeyUp);
@@ -74,7 +74,7 @@
             // Confirm
             // 
             this.Confirm.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Confirm.Location = new System.Drawing.Point(59, 57);
+            this.Confirm.Location = new System.Drawing.Point(49, 60);
             this.Confirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(57, 27);
@@ -87,7 +87,7 @@
             // 
             this.addCommand.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.addCommand.Location = new System.Drawing.Point(8, 28);
-            this.addCommand.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
+            this.addCommand.Margin = new System.Windows.Forms.Padding(0);
             this.addCommand.Name = "addCommand";
             this.addCommand.Size = new System.Drawing.Size(78, 29);
             this.addCommand.TabIndex = 7;
@@ -97,7 +97,7 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(133, 57);
+            this.Cancel.Location = new System.Drawing.Point(123, 60);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(57, 27);
             this.Cancel.TabIndex = 8;
@@ -107,7 +107,7 @@
             // 
             // Apply
             // 
-            this.Apply.Location = new System.Drawing.Point(238, 57);
+            this.Apply.Location = new System.Drawing.Point(228, 60);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(57, 27);
             this.Apply.TabIndex = 9;
@@ -120,7 +120,8 @@
             this.AcceptButton = this.Confirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 88);
+            this.ClientSize = new System.Drawing.Size(331, 88);
+            this.ControlBox = false;
             this.Controls.Add(this.Apply);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.addCommand);

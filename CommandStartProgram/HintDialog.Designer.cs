@@ -34,16 +34,19 @@
             // 
             // hint
             // 
-            this.hint.AutoSize = true;
-            this.hint.Location = new System.Drawing.Point(86, 18);
+            this.hint.AutoEllipsis = true;
+            this.hint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hint.Location = new System.Drawing.Point(50, 30);
             this.hint.Name = "hint";
-            this.hint.Size = new System.Drawing.Size(39, 15);
+            this.hint.Size = new System.Drawing.Size(207, 76);
             this.hint.TabIndex = 0;
             this.hint.Text = "hint";
+            this.hint.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // closeHint
             // 
-            this.closeHint.Location = new System.Drawing.Point(69, 46);
+            this.closeHint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.closeHint.Location = new System.Drawing.Point(108, 75);
             this.closeHint.Name = "closeHint";
             this.closeHint.Size = new System.Drawing.Size(75, 28);
             this.closeHint.TabIndex = 1;
@@ -56,14 +59,16 @@
             this.AcceptButton = this.closeHint;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 79);
-            this.ControlBox = false;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(307, 106);
             this.Controls.Add(this.closeHint);
             this.Controls.Add(this.hint);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HintDialog";
+            this.Padding = new System.Windows.Forms.Padding(50, 30, 50, 0);
             this.Text = "Hint";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

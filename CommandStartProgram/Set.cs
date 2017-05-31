@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CommandStartProgram
@@ -16,12 +10,12 @@ namespace CommandStartProgram
         private bool Shift = false;
         private bool Alt = false;
         private String keyCode = "";
-        LoadConfig config;
+        private LoadConfig config;
 
-        public Set()
+        public Set(LoadConfig config)
         {
             InitializeComponent();
-            config = new LoadConfig(Application.StartupPath + @"\command.ini");
+            this.config = config;
             InitComponent();
         }
 
@@ -170,6 +164,7 @@ namespace CommandStartProgram
                 }
             }
             InitComponent();
+            MainForm.SetHotkey(config, System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
         }
     }
 }
