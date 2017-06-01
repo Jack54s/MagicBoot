@@ -36,6 +36,7 @@
             this.显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Esc = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,22 +89,36 @@
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.MenuExit);
             // 
+            // Esc
+            // 
+            this.Esc.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Esc.Location = new System.Drawing.Point(180, 4);
+            this.Esc.Name = "Esc";
+            this.Esc.Size = new System.Drawing.Size(0, 0);
+            this.Esc.TabIndex = 1;
+            this.Esc.Text = "关闭";
+            this.Esc.UseVisualStyleBackColor = true;
+            this.Esc.Click += new System.EventHandler(this.Esc_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelButton = this.Esc;
             this.ClientSize = new System.Drawing.Size(236, 35);
+            this.Controls.Add(this.Esc);
             this.Controls.Add(this.command);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(6, 4, 6, 0);
-            this.ShowInTaskbar = false;
-            this.Text = "魔法师咒语";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MagicBoot";
             this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,6 +133,7 @@
         private System.Windows.Forms.ToolStripMenuItem 显示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.Button Esc;
     }
 }
 

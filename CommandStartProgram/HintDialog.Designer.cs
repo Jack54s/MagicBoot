@@ -46,6 +46,7 @@
             // closeHint
             // 
             this.closeHint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.closeHint.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.closeHint.Location = new System.Drawing.Point(108, 75);
             this.closeHint.Name = "closeHint";
             this.closeHint.Size = new System.Drawing.Size(75, 28);
@@ -60,6 +61,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.CancelButton = this.closeHint;
             this.ClientSize = new System.Drawing.Size(307, 106);
             this.Controls.Add(this.closeHint);
             this.Controls.Add(this.hint);
@@ -67,6 +69,7 @@
             this.MinimizeBox = false;
             this.Name = "HintDialog";
             this.Padding = new System.Windows.Forms.Padding(50, 30, 50, 0);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Hint";
             this.ResumeLayout(false);
 

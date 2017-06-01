@@ -146,6 +146,7 @@ namespace CommandStartProgram
                     hi.setHint("记忆有误！");
                     hi.Show();
                 }
+                command.Text = "";
             }
         }
 
@@ -166,6 +167,11 @@ namespace CommandStartProgram
                 default: break;
             }
             base.WndProc(ref m);
+        }
+
+        private void Esc_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

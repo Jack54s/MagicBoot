@@ -164,7 +164,7 @@ namespace CommandStartProgram
                 }
             }
             InitComponent();
-            MainForm.SetHotkey(config, System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle);
+            MainForm.SetHotkey(config, Application.OpenForms["MainForm"].Handle);
         }
     }
 }
