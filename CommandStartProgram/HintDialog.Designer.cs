@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HintDialog));
             this.hint = new System.Windows.Forms.Label();
             this.closeHint = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -65,12 +66,13 @@
             this.ClientSize = new System.Drawing.Size(307, 106);
             this.Controls.Add(this.closeHint);
             this.Controls.Add(this.hint);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HintDialog";
             this.Padding = new System.Windows.Forms.Padding(50, 30, 50, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Hint";
+            this.Text = "苍天愚弄我";
             this.ResumeLayout(false);
 
         }

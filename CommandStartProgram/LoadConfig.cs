@@ -28,8 +28,20 @@ namespace CommandStartProgram
                 if (!ExistINIFile())
                 {
                     System.IO.StreamWriter file = new System.IO.StreamWriter(iniPath, true);
+                    file.WriteLine("; Guider about software");
+                    file.WriteLine("; HotKey support \"Ctrl\"|\"Alt\"|\"Shift\"+anotherKey, \"Win\" is not supported.");
+                    file.WriteLine("; When add commands, you can use \'|\' to separate several commands like \"vs|v| Visual Studio\", words that start with spaces or end with spaces will be remove");
+                    file.WriteLine("");
                     file.WriteLine("; Command List");
                     file.WriteLine("");
+                    this.IniWriteValue("Command", "cmd", "C:\\Windows\\System32\\cmd.exe");
+                    file.WriteLine("");
+                    file.WriteLine("; Some set about program as following.\n; Change it cautious!");
+                    file.WriteLine("");
+                    this.IniWriteValue("Set", "Ctrl", "False");
+                    this.IniWriteValue("Set", "Alt", "False");
+                    this.IniWriteValue("Set", "Shift", "False");
+                    this.IniWriteValue("Set", "KeyCode", "R");
                     file.Flush();
                     file.Close();
                 }
