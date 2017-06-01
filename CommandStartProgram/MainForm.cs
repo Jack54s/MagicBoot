@@ -7,7 +7,6 @@ namespace CommandStartProgram
 {
     public partial class MainForm : Form
     {
-        String appName = "MagicBoot";
         LoadConfig config;
         HintDialog hi;  //提示框
 
@@ -126,7 +125,7 @@ namespace CommandStartProgram
         {
             if (e.KeyChar == 13)
             {
-                String comtxt = command.Text;
+                String comtxt = command.Text.Trim();
                 String fileName = config.ReadIni("Command List", comtxt);
 
                 if (fileName != "")

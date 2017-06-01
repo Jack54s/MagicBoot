@@ -6,6 +6,7 @@ namespace CommandStartProgram
 {
     public partial class Set : Form
     {
+        private String appName = "MagicBoot";
         private bool Ctrl = false;
         private bool Shift = false;
         private bool Alt = false;
@@ -24,9 +25,8 @@ namespace CommandStartProgram
         /// </summary>
         public void InitComponent()
         {
-            String checkBoxStatus = config.ReadIni("Set", "run");
             String k = config.ReadIni("Set", "KeyCode");
-            if (checkBoxStatus == "True")
+            if (AutoRun.isAutoRun(appName, Application.ExecutablePath))
             {
                 startWithBoot.Checked = true;
             }
@@ -124,7 +124,10 @@ namespace CommandStartProgram
 
         private void Apply_Click(object sender, EventArgs e)
         {
-            config.IniWriteValue("Set", "run", startWithBoot.Checked.ToString());
+            if (startWithBoot.Checked != AutoRun.isAutoRun(appName, Application.ExecutablePath))
+            {
+                AutoRun.setAutoRun(appName, Application.ExecutablePath, startWithBoot.Checked);
+            }
             String hotKey = HotKeyText.Text;
             if (hotKey.Contains("Ctrl"))
             {
@@ -165,6 +168,7 @@ namespace CommandStartProgram
             }
             InitComponent();
             MainForm.SetHotkey(config, Application.OpenForms["MainForm"].Handle);
+            //AutoRun.isAutoRun(appName, Application.ExecutablePath);
         }
     }
 }
