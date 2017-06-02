@@ -1,11 +1,11 @@
 ## MagicBoot
 **你可以使用你自己定义的命令来打开特定的文件**
 
-程序下载地址：[MagicBoot]()
+程序下载地址：[MagicBoot](https://github.com/Jack54s/MagicBoot/blob/master/CommandStartProgram/bin/Release/app.publish/MagicBoot.exe)
 
 ### 主界面
 
-![主界面]()  
+![主界面](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/MainForm.png)  
 
 > 主界面可以通过你设置的热键进行召出，以及`Esc`键进行隐藏
 
@@ -17,7 +17,7 @@
 
 ### 设置
 
-![设置]()
+![设置](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/Set.png)
 
 > 热键目前支持Ctrl|Alt|Shift + Key
 
@@ -27,7 +27,7 @@
 
 ### 添加你自己的指令
 
-![添加命令]()
+![添加命令](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand.png)
 
 在这个界面你可以在启动指令的框中输入你想自定义的指令如`vs|vs2015| Visual Studio`，你可以为  
 
@@ -40,7 +40,7 @@
 
 ### ini配置文件
 
-![ini配置文件]()
+![ini配置文件](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/ini.png)
 
 这是软件的配置文件，你可以将它添加到你的指令当中，比如`ini`表示打开它，这样你就可以方便的打  
 
