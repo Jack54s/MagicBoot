@@ -143,6 +143,7 @@ namespace CommandStartProgram
         {
             if (e.KeyChar == 13)
             {
+                e.Handled = true;
                 String comtxt = command.Text.Trim();
                 String fileName = config.ReadIni("Command List", comtxt);
 
