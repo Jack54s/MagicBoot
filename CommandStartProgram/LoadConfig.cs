@@ -33,13 +33,11 @@ namespace CommandStartProgram
                     file.WriteLine("; When add commands, you can use \'|\' to separate several commands like \"vs|v| Visual Studio\", words that start with spaces or end with spaces will be remove");
                     file.WriteLine("");
                     file.WriteLine("; Command List");
-                    file.WriteLine("");
                     file.WriteLine("[Command List]");
                     file.WriteLine("cmd=C:\\Windows\\System32\\cmd.exe");
                     file.WriteLine("");
                     file.WriteLine("; Some set about program as following.");
                     file.WriteLine("; Change it cautious!");
-                    file.WriteLine("");
                     file.WriteLine("[Set]");
                     file.WriteLine("Ctrl =True");
                     file.WriteLine("Alt=False");
