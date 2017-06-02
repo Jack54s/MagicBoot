@@ -124,51 +124,57 @@ namespace CommandStartProgram
 
         private void Apply_Click(object sender, EventArgs e)
         {
-            if (startWithBoot.Checked != AutoRun.isAutoRun(appName, Application.ExecutablePath))
+            try
             {
-                AutoRun.setAutoRun(appName, Application.ExecutablePath, startWithBoot.Checked);
-            }
-            String hotKey = HotKeyText.Text;
-            if (hotKey.Contains("Ctrl"))
-            {
-                config.IniWriteValue("Set", "Ctrl", "True");
-            }
-            else
-            {
-                config.IniWriteValue("Set", "Ctrl", "False");
-            }
-            if (hotKey.Contains("Shift"))
-            {
-                config.IniWriteValue("Set", "Shift", "True");
-            }
-            else
-            {
-                config.IniWriteValue("Set", "Shift", "False");
-            }
-            if (hotKey.Contains("Alt"))
-            {
-                config.IniWriteValue("Set", "Alt", "True");
-            }
-            else
-            {
-                config.IniWriteValue("Set", "Alt", "False");
-            }
-            if ((keyCode = config.ReadIni("Set", "KeyCode")) == "" || !(hotKey.Substring(hotKey.LastIndexOf('+'))).Equals(keyCode))
-            {
-                try
+                if (startWithBoot.Checked != AutoRun.isAutoRun(appName, Application.ExecutablePath))
                 {
-                    String key = hotKey.Substring(hotKey.LastIndexOf('+') + 1);
-                    key = ((Keys)Enum.Parse(typeof(Keys), key)).ToString();
-                    config.IniWriteValue("Set", "KeyCode", key);
+                    AutoRun.setAutoRun(appName, Application.ExecutablePath, startWithBoot.Checked);
                 }
-                catch (ArgumentException excp)
+                String hotKey = HotKeyText.Text;
+                if (hotKey.Contains("Ctrl"))
                 {
-                    MessageBox.Show(excp.Message);
+                    config.IniWriteValue("Set", "Ctrl", "True");
                 }
+                else
+                {
+                    config.IniWriteValue("Set", "Ctrl", "False");
+                }
+                if (hotKey.Contains("Shift"))
+                {
+                    config.IniWriteValue("Set", "Shift", "True");
+                }
+                else
+                {
+                    config.IniWriteValue("Set", "Shift", "False");
+                }
+                if (hotKey.Contains("Alt"))
+                {
+                    config.IniWriteValue("Set", "Alt", "True");
+                }
+                else
+                {
+                    config.IniWriteValue("Set", "Alt", "False");
+                }
+                if ((keyCode = config.ReadIni("Set", "KeyCode")) == "" || !(hotKey.Substring(hotKey.LastIndexOf('+'))).Equals(keyCode))
+                {
+                    try
+                    {
+                        String key = hotKey.Substring(hotKey.LastIndexOf('+') + 1);
+                        key = ((Keys)Enum.Parse(typeof(Keys), key)).ToString();
+                        config.IniWriteValue("Set", "KeyCode", key);
+                    }
+                    catch (ArgumentException excp)
+                    {
+                        MessageBox.Show(excp.Message);
+                    }
+                }
+                InitComponent();
+                MainForm.SetHotkey(config, Application.OpenForms["MainForm"].Handle);
             }
-            InitComponent();
-            MainForm.SetHotkey(config, Application.OpenForms["MainForm"].Handle);
-            //AutoRun.isAutoRun(appName, Application.ExecutablePath);
+            catch(Exception subStringE)
+            {
+                MessageBox.Show(subStringE.Message);
+            }
         }
     }
 }

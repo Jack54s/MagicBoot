@@ -10,3 +10,8 @@ c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\Command
 c:\users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.pdb
 C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.Set.resources
 C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.HintDialog.resources
+C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.TrustInfo.xml
+C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\bin\Debug\CommandStartProgram.exe.manifest
+C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\bin\Debug\CommandStartProgram.application
+C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.exe.manifest
+C:\Users\11407\documents\visual studio 2015\Projects\CommandStartProgram\CommandStartProgram\obj\Debug\CommandStartProgram.application

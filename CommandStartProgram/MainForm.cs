@@ -20,38 +20,56 @@ namespace CommandStartProgram
 
         public static void SetHotkey(LoadConfig config, IntPtr handle)
         {
-            HotKey.UnregisterHotKey(handle, 100);
-            int hotkeycode = (config.ReadIni("Set", "Ctrl") == "True" ? 100 : 0) + (config.ReadIni("Set", "Alt") == "True" ? 10 : 0) + (config.ReadIni("Set", "Shift") == "True" ? 1 : 0);
-            Keys vk = (Keys)Enum.Parse(typeof(Keys), config.ReadIni("Set", "KeyCode"));
-            switch (hotkeycode)
+            try
             {
-                case 0:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.None, vk);
-                    break;
-                case 1:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Shift, vk);
-                    break;
-                case 10:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Alt, vk);
-                    break;
-                case 11:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Alt | HotKey.KeyModifiers.Shift, vk);
-                    break;
-                case 100:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl, vk);
-                    break;
-                case 101:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Shift, vk);
-                    break;
-                case 110:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Alt, vk);
-                    break;
-                case 111:
-                    HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Alt | HotKey.KeyModifiers.Shift, vk);
-                    break;
-                default:
-                    MessageBox.Show("肯定有什么地方错了，嗯~");
-                    break;
+                HotKey.UnregisterHotKey(handle, 100);
+                if (!config.ExistINIFile())
+                {
+                    MessageBox.Show("ini文件不存在");
+                    Application.Exit();
+                }
+                int hotkeycode = (config.ReadIni("Set", "Ctrl") == "True" ? 100 : 0) + (config.ReadIni("Set", "Alt") == "True" ? 10 : 0) + (config.ReadIni("Set", "Shift") == "True" ? 1 : 0);
+                if (config.ReadIni("Set", "KeyCode") == "")
+                {
+                    MessageBox.Show("Something Wrong!\n KeyCode = \"\"");
+                    Application.Exit();
+                }
+                Keys vk = (Keys)Enum.Parse(typeof(Keys), config.ReadIni("Set", "KeyCode")); ;
+                switch (hotkeycode)
+                {
+                    case 0:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.None, vk);
+                        break;
+                    case 1:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Shift, vk);
+                        break;
+                    case 10:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Alt, vk);
+                        break;
+                    case 11:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Alt | HotKey.KeyModifiers.Shift, vk);
+                        break;
+                    case 100:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl, vk);
+                        break;
+                    case 101:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Shift, vk);
+                        break;
+                    case 110:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Alt, vk);
+                        break;
+                    case 111:
+                        HotKey.RegisterHotKey(handle, 100, HotKey.KeyModifiers.Ctrl | HotKey.KeyModifiers.Alt | HotKey.KeyModifiers.Shift, vk);
+                        break;
+                    default:
+                        MessageBox.Show("肯定有什么地方错了，嗯~");
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Application.Exit();
             }
         }
 

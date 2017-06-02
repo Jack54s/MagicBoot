@@ -39,6 +39,7 @@
             // 
             // Command
             // 
+            this.Command.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Command.Location = new System.Drawing.Point(88, 6);
             this.Command.Name = "Command";
             this.Command.Size = new System.Drawing.Size(269, 27);

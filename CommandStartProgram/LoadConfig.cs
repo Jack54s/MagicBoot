@@ -34,14 +34,17 @@ namespace CommandStartProgram
                     file.WriteLine("");
                     file.WriteLine("; Command List");
                     file.WriteLine("");
-                    this.IniWriteValue("Command", "cmd", "C:\\Windows\\System32\\cmd.exe");
+                    file.WriteLine("[Command List]");
+                    file.WriteLine("cmd=C:\\Windows\\System32\\cmd.exe");
                     file.WriteLine("");
-                    file.WriteLine("; Some set about program as following.\n; Change it cautious!");
+                    file.WriteLine("; Some set about program as following.");
+                    file.WriteLine("; Change it cautious!");
                     file.WriteLine("");
-                    this.IniWriteValue("Set", "Ctrl", "False");
-                    this.IniWriteValue("Set", "Alt", "False");
-                    this.IniWriteValue("Set", "Shift", "False");
-                    this.IniWriteValue("Set", "KeyCode", "R");
+                    file.WriteLine("[Set]");
+                    file.WriteLine("Ctrl =True");
+                    file.WriteLine("Alt=False");
+                    file.WriteLine("Shift=False");
+                    file.WriteLine("KeyCode=R");
                     file.Flush();
                     file.Close();
                 }
