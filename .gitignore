@@ -2,6 +2,7 @@
 .vs
 
 # build result
-bin/*
-!bin/Release/app.publish
+/CommandStartProgram/bin/Debug
+/CommandStartProgram/bin/Release
+!bin/Release/app.publish/MagicBoot.exe
 obj/
