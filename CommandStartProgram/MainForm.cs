@@ -161,7 +161,14 @@ namespace MagicBoot
                 {
                     if (File.Exists(fileName))
                     {
-                        System.Diagnostics.Process.Start(fileName);
+                        try
+                        {
+                            System.Diagnostics.Process.Start(fileName);
+                        }
+                        catch (Exception pse)
+                        {
+                            MessageBox.Show(pse.Message);
+                        }
                     }
                     else
                     {
