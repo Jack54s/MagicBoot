@@ -3,7 +3,30 @@
 
 程序下载地址：[MagicBoot](https://github.com/Jack54s/MagicBoot/blob/master/CommandStartProgram/bin/Release/app.publish/MagicBoot.exe)
 
-### 主界面
+### 使用
+
+----
+
+程序为绿色版，免安装，第一次运行会在程序所在目录下建立一个ini文件，之后如果ini文件无法被找  
+
+到会重新创建一个新的ini文件。**使用开机启动功能时会要求修改注册表，不要担心修改的注册表项在**
+
+**HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run。**
+
+### 功能列表
+
+----
+
+* 指令打开文件
+* 设置热键
+* 添加指令
+* 开机启动
+
+### 主要界面截图及说明
+
+#### 主界面
+
+----
 
 ![主界面](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/MainForm.png)  
 
@@ -13,9 +36,12 @@
 
 运行时，会在软件所在的目录下创建一个ini文件，并将cmd这个命令与你的电脑的`C:\Windows\Sys`  
 
-`tem32\cmd.exe`相关联所以你只要输入cmd即可启动命令行。之后你也可以在设置中添加自己的命令。  
+`tem32\cmd.exe`相关联所以你只要输入cmd即可启动命令行。之后你也可以在设置中添加自己的命令。
 
-### 设置
+
+#### 设置
+
+----
 
 ![设置](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/Set.png)
 
@@ -25,20 +51,23 @@
 
 是你打开主界面的热键，默认是`Ctrl+R`。点击“添加命令”按钮之后进入添加命令界面。
 
-### 添加你自己的指令
+
+#### 添加你自己的指令
 
 ![添加命令](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand.png)
 
 在这个界面你可以在启动指令的框中输入你想自定义的指令如`vs|vs2015| Visual Studio`，你可以为  
 
-一个文件定义多个指令，指令之间用`|`分隔，然后选择你要打开的文件。文件打开的方式和你电脑  
+一个文件定义多个指令，指令之间用`|`分隔，然后选择你要打开的文件（文件打开的方式和你电脑  
 
-的默认方式相同，如果你的电脑不能识别文件，则会让你手动选择，
-**目前无法选择Internet快键方式**
+的默认方式相同，如果你的电脑不能识别文件，则会让你手动选择），**目前无法选择Internet快键方式**
 
 **(.url文件)。**
 
-### ini配置文件
+
+#### ini配置文件
+
+----
 
 ![ini配置文件](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/ini.png)
 
@@ -52,4 +81,7 @@
 
 <br/>
 
-> 程序的icon和窗体标题部分来自于Dota2 卡尔
+### 鸣谢
+
+* 程序的icon和窗体标题部分来自于Dota2 卡尔
+* 程序的部分代码参考[WindowsHotKeyForm](https://github.com/yuanliwei/WindowsHotKeyForm)
