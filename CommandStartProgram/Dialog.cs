@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace CommandStartProgram
+namespace MagicBoot
 {
     public partial class addCommand : Form
     {
@@ -29,6 +29,8 @@ namespace CommandStartProgram
             if (fileName != "")
             {
                 selectProgram.BorderStyle = BorderStyle.None;
+                selectProgram.AutoSize = false;
+                selectProgram.Size = new System.Drawing.Size(this.Width - 110, selectProgram.Height);
             }
         }
 

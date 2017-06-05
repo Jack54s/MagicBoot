@@ -2,7 +2,7 @@
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace CommandStartProgram
+namespace MagicBoot
 {
     public class LoadConfig
     {

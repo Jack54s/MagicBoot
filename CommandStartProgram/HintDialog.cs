@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CommandStartProgram
+namespace MagicBoot
 {
     public partial class HintDialog : Form
     {

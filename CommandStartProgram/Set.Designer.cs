@@ -1,4 +1,4 @@
-﻿namespace CommandStartProgram
+﻿namespace MagicBoot
 {
     partial class Set
     {

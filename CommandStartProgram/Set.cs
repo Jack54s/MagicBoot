@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace CommandStartProgram
+namespace MagicBoot
 {
     public partial class Set : Form
     {

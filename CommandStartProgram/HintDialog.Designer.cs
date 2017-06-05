@@ -1,4 +1,4 @@
-﻿namespace CommandStartProgram
+﻿namespace MagicBoot
 {
     partial class HintDialog
     {
@@ -71,7 +71,7 @@
             this.MinimizeBox = false;
             this.Name = "HintDialog";
             this.Padding = new System.Windows.Forms.Padding(50, 30, 50, 0);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "苍天愚弄我";
             this.ResumeLayout(false);
 

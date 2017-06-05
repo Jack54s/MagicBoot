@@ -1,4 +1,4 @@
-﻿namespace CommandStartProgram
+﻿namespace MagicBoot
 {
     partial class addCommand
     {
@@ -77,6 +77,7 @@
             // 
             // selectProgram
             // 
+            this.selectProgram.AutoEllipsis = true;
             this.selectProgram.AutoSize = true;
             this.selectProgram.BackColor = System.Drawing.SystemColors.Control;
             this.selectProgram.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;

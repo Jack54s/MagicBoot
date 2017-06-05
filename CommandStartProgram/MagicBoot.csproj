@@ -7,7 +7,7 @@
     <ProjectGuid>{3D76514C-3082-494C-A4A4-F0606151A95B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommandStartProgram</RootNamespace>
+    <RootNamespace>MagicBoot</RootNamespace>
     <AssemblyName>MagicBoot</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

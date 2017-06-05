@@ -1,14 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using System.IO;
 
-namespace CommandStartProgram
+namespace MagicBoot
 {
     public partial class MainForm : Form
     {
         LoadConfig config;
         HintDialog hi;  //提示框
+
+        [DllImport("user32")]
+        static extern int SetForegroundWindow(IntPtr hwnd);
 
         public MainForm()
         {
@@ -110,6 +114,7 @@ namespace CommandStartProgram
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+            SetForegroundWindow(this.Handle);
         }
 
         /// <summary>
