@@ -8,9 +8,9 @@
 
 程序为绿色版，免安装，第一次运行会在程序所在目录下建立一个ini文件，之后如果ini文件无法被找  
 
-到会重新创建一个新的ini文件。**使用开机启动功能时会要求修改注册表，不要担心修改的注册表项在**
+到会重新创建一个新的ini文件。**使用开机启动功能时会要求修改注册表，不要担心，修改的注册表项**
 
-**HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run。**
+**在HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run里。**
 
 ## 功能列表
 
