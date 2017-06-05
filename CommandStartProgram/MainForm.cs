@@ -192,6 +192,7 @@ namespace MagicBoot
         protected override void WndProc(ref Message m)
         {
             const int WM_HOTKEY = 0x0312;//如果m.Msg的值为0x0312那么表示用户按下了热键
+            const int WM_QUERYENDSESSION = 0X0011;
             switch (m.Msg)
             {
                 case WM_HOTKEY:
@@ -202,6 +203,9 @@ namespace MagicBoot
                             break;
                         default: break;
                     }
+                    break;
+                case WM_QUERYENDSESSION:
+                    Application.Exit();
                     break;
                 default: break;
             }
