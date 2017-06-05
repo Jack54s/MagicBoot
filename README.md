@@ -1,11 +1,10 @@
-## MagicBoot
+# MagicBoot
+
 **你可以使用你自己定义的命令来打开特定的文件**
 
 程序下载地址：[MagicBoot](https://github.com/Jack54s/MagicBoot/blob/master/CommandStartProgram/bin/Release/app.publish/MagicBoot.exe)
 
-### 使用
-
-----
+## 使用
 
 程序为绿色版，免安装，第一次运行会在程序所在目录下建立一个ini文件，之后如果ini文件无法被找  
 
@@ -13,20 +12,16 @@
 
 **HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run。**
 
-### 功能列表
-
-----
+## 功能列表
 
 * 指令打开文件
 * 设置热键
 * 添加指令
 * 开机启动
 
-### 主要界面截图及说明
+## 主要界面截图及说明
 
-#### 主界面
-
-----
+### 主界面
 
 ![主界面](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/MainForm.png)  
 
@@ -39,9 +34,7 @@
 `tem32\cmd.exe`相关联所以你只要输入cmd即可启动命令行。之后你也可以在设置中添加自己的命令。
 
 
-#### 设置
-
-----
+### 设置
 
 ![设置](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/Set.png)
 
@@ -52,7 +45,7 @@
 是你打开主界面的热键，默认是`Ctrl+R`。点击“添加命令”按钮之后进入添加命令界面。
 
 
-#### 添加你自己的指令
+### 添加你自己的指令
 
 ![添加命令](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand.png)
 
@@ -65,9 +58,7 @@
 **(.url文件)。**
 
 
-#### ini配置文件
-
-----
+### ini配置文件
 
 ![ini配置文件](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/ini.png)
 
@@ -81,7 +72,7 @@
 
 <br/>
 
-### 鸣谢
+## 鸣谢
 
 * 程序的icon和窗体标题部分来自于Dota2 卡尔
 * 程序的部分代码参考[WindowsHotKeyForm](https://github.com/yuanliwei/WindowsHotKeyForm)
