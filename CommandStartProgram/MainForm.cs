@@ -22,6 +22,11 @@ namespace MagicBoot
             SetHotkey(config, Handle);
         }
 
+        /// <summary>
+        /// 程序初始化时设置热键
+        /// </summary>
+        /// <param name="config">配置类</param>
+        /// <param name="handle">主窗体句柄</param>
         public static void SetHotkey(LoadConfig config, IntPtr handle)
         {
             try
@@ -173,6 +178,10 @@ namespace MagicBoot
             }
         }
 
+        /// <summary>
+        /// Windows消息监听，监视是否按下热键
+        /// </summary>
+        /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
             const int WM_HOTKEY = 0x0312;//如果m.Msg的值为0x0312那么表示用户按下了热键
@@ -192,6 +201,11 @@ namespace MagicBoot
             base.WndProc(ref m);
         }
 
+        /// <summary>
+        /// 按下Esc键的效果，设置了CancelButton并将Button.Size(0,0)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Esc_Click(object sender, EventArgs e)
         {
             this.Close();

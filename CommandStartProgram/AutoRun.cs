@@ -9,6 +9,12 @@ namespace MagicBoot
             Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run") : 
             Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
         
+        /// <summary>
+        /// 设置自启动
+        /// </summary>
+        /// <param name="appName"></param>
+        /// <param name="fileName">应用的路径</param>
+        /// <param name="isAutoRun">是否自启动</param>
         public static void setAutoRun(string appName, string fileName, bool isAutoRun)
         {
             RegistryKey reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true) == null ?
@@ -34,6 +40,12 @@ namespace MagicBoot
             }
         }
 
+        /// <summary>
+        /// 检测是否自启动
+        /// </summary>
+        /// <param name="appName">应用名</param>
+        /// <param name="fileName">应用路径</param>
+        /// <returns></returns>
         public static bool isAutoRun(String appName, String fileName)
         {
             try

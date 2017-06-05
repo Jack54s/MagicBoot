@@ -19,7 +19,7 @@ namespace MagicBoot
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="iniPath"></param>
+        /// <param name="iniPath">ini文件路径</param>
         public LoadConfig(String iniPath)
         {
             this.iniPath = iniPath;

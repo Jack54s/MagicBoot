@@ -75,6 +75,11 @@ namespace MagicBoot
             this.Close();
         }
 
+        /// <summary>
+        /// 设置热键时按下键盘的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HotKeyText_KeyDown(object sender, KeyEventArgs e)
         {
             String hotKey = "";
@@ -109,6 +114,11 @@ namespace MagicBoot
             HotKeyText.Text = hotKey;
         }
 
+        /// <summary>
+        /// 设置热键时，键盘键松开的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HotKeyText_KeyUp(object sender, KeyEventArgs e)
         {
             Ctrl = false;
@@ -117,11 +127,21 @@ namespace MagicBoot
             keyCode = "";
         }
 
+        /// <summary>
+        /// 取消按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// 应用按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Apply_Click(object sender, EventArgs e)
         {
             try
