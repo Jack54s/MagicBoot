@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoRun.cs" />
+    <Compile Include="commandView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="commandView.Designer.cs">
+      <DependentUpon>commandView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Set.Designer.cs">
       <DependentUpon>Set.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="commandView.resx">
+      <DependentUpon>commandView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog.resx">
       <DependentUpon>Dialog.cs</DependentUpon>
     </EmbeddedResource>

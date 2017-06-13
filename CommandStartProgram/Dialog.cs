@@ -61,25 +61,32 @@ namespace MagicBoot
             {
                 if(comm.Trim() == "")
                 {
-                    break;
+                    continue;
+                }
+                if(comm.Trim().Contains("=") == true)
+                {
+                    MessageBox.Show("指令中不得含有'='字符");
+                    continue;
                 }
                 if (writeConfig.ReadIni("Command List", comm) != "")
                 {
-                    DialogResult dr = MessageBox.Show("指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show(comm + "指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if(dr == DialogResult.OK)
                     {
                         writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
-                        hi.Close();
-                        this.Close();
+                    }
+                    else if(dr == DialogResult.Cancel)
+                    {
+                        continue;
                     }
                 }
                 else
                 {
                     writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
-                    hi.Close();
-                    this.Close();
                 }
             }
+            hi.Close();
+            this.Close();
         }
     }
 }

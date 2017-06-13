@@ -196,6 +196,12 @@ namespace MagicBoot
                 MessageBox.Show(subStringE.Message);
             }
         }
+
+        private void ViewCommand_Click(object sender, EventArgs e)
+        {
+            commandView cv = new commandView();
+            cv.Show();
+        }
     }
 }
 

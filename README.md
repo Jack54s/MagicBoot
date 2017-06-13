@@ -81,4 +81,4 @@
 ## 鸣谢
 
 * 程序的icon和窗体标题部分来自于Dota2 卡尔
-* 程序的部分代码参考[WindowsHotKeyForm](https://github.com/yuanliwei/WindowsHotKeyForm)
+* 程序的部分代码参考自[WindowsHotKeyForm](https://github.com/yuanliwei/WindowsHotKeyForm)
