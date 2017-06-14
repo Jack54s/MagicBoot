@@ -15,18 +15,16 @@ namespace MagicBoot
         public commandView()
         {
             InitializeComponent();
-            InitializeCommandList();
         }
 
-        private void InitializeCommandList()
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Add_Click(object sender, EventArgs e)
+        private void commandView_Load(object sender, EventArgs e)
         {
-            addCommand ac = new addCommand();
-            ac.Show();
+
         }
     }
 }
