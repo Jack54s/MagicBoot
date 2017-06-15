@@ -14,6 +14,8 @@ namespace MagicBoot
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         [DllImport("kernel32")]
+        private static extern int GetPrivateProfileString(string section, string key, string def, byte[] retVal, int size, string filePath);
+        [DllImport("kernel32")]
         private static extern int GetPrivateProfileSection(String section, StringBuilder buffer, int size, String fileName);
 
         /// <summary>
@@ -79,6 +81,25 @@ namespace MagicBoot
             StringBuilder temp = new StringBuilder(500);
             int i = GetPrivateProfileString(Section, Key, "", temp, 500, this.iniPath);
             return temp.ToString();
+        }
+
+        /// <summary>
+        /// 获取节点中的所有key值
+        /// </summary>
+        /// <param name="Section"></param>
+        /// <returns></returns>
+        public String getAllKeyInIni(String Section)
+        {
+            if (!ExistINIFile())
+            {
+                System.Windows.Forms.MessageBox.Show("ini配置文件不存在");
+                Environment.Exit(0);
+            }
+            byte[] temp = new byte[1000];
+            int i = GetPrivateProfileString(Section, null, "", temp, 1000, this.iniPath);
+            byte[] keys = new byte[i-1];
+            Buffer.BlockCopy(temp, 0, keys, 0, i-1);
+            return Encoding.UTF8.GetString(keys);
         }
 
         /// <summary> 
