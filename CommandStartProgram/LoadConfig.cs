@@ -97,6 +97,10 @@ namespace MagicBoot
             }
             byte[] temp = new byte[1000];
             int i = GetPrivateProfileString(Section, null, "", temp, 1000, this.iniPath);
+            if(i == 0)
+            {
+                return "";
+            }
             byte[] keys = new byte[i-1];
             Buffer.BlockCopy(temp, 0, keys, 0, i-1);
             return Encoding.UTF8.GetString(keys);
