@@ -118,8 +118,10 @@
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(6, 4, 6, 0);
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MagicBoot";
+            this.TopMost = true;
             this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
