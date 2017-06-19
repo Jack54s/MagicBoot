@@ -140,7 +140,7 @@ namespace MagicBoot
         /// <param name="e"></param>
         private void Set_Click(object sender, EventArgs e)
         {
-            Set set = new Set(config);
+            Set set = Set.getInstance(config);
             set.Show();
         }
 

@@ -12,12 +12,22 @@ namespace MagicBoot
         private bool Alt = false;
         private String keyCode = "";
         private LoadConfig config;
+        private static Set _instance = null;
 
-        public Set(LoadConfig config)
+        private Set(LoadConfig config)
         {
             InitializeComponent();
             this.config = config;
             InitComponent();
+        }
+
+        public static Set getInstance(LoadConfig config)
+        {
+            if(_instance == null || _instance.IsDisposed)
+            {
+                _instance = new MagicBoot.Set(config);
+            }
+            return _instance;
         }
 
         /// <summary>
@@ -60,7 +70,7 @@ namespace MagicBoot
         /// <param name="e"></param>
         private void addCommand_Click(object sender, EventArgs e)
         {
-            addCommand ac = new addCommand();
+            addCommand ac = MagicBoot.addCommand.getInstance();
             ac.Show();
         }
 
@@ -199,7 +209,7 @@ namespace MagicBoot
 
         private void ViewCommand_Click(object sender, EventArgs e)
         {
-            commandView cv = new commandView();
+            commandView cv = commandView.getInstance();
             cv.Show();
         }
     }

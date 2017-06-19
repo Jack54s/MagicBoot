@@ -6,11 +6,22 @@ namespace MagicBoot
     public partial class commandView : Form
     {
         LoadConfig ini;
-        public commandView()
+        private static commandView _instance = null;
+
+        private commandView()
         {
             InitializeComponent();
             ini = new LoadConfig(Application.StartupPath + @"\command.ini");
             InitList();
+        }
+
+        public static commandView getInstance()
+        {
+            if(_instance == null || _instance.IsDisposed)
+            {
+                _instance = new commandView();
+            }
+            return _instance;
         }
 
         public void InitList()
@@ -35,7 +46,7 @@ namespace MagicBoot
 
         private void Add_Click(object sender, EventArgs e)
         {
-            addCommand ac = new addCommand(); ;
+            addCommand ac = addCommand.getInstance();
             ac.FormClosing += Ac_FormClosing;
             ac.Show();
         }

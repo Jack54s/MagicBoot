@@ -6,11 +6,21 @@ namespace MagicBoot
     public partial class addCommand : Form
     {
         HintDialog hi;  //提示框
+        private static addCommand _instance = null;
 
-        public addCommand()
+        private addCommand()
         {
             InitializeComponent();
             hi = new HintDialog();
+        }
+
+        public static addCommand getInstance()
+        {
+            if(_instance == null || _instance.IsDisposed)
+            {
+                _instance = new addCommand();
+            }
+            return _instance;
         }
 
         /// <summary>
