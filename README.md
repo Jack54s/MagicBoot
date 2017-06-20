@@ -40,23 +40,36 @@
 
 > 热键目前支持Ctrl|Alt|Shift + Key
 
-在这个界面你可以看到又开机启动和快捷键以及添加命令的按钮，开机启动就不用说明了，而快捷键  
+在这个界面你可以看到有开机启动和快捷键以及添加和管理命令的按钮，开机启动就不用说明了，而  
 
-是你打开主界面的热键，默认是`Ctrl+R`。点击“添加命令”按钮之后进入添加命令界面。
+快捷键是你打开主界面的热键，默认是`Ctrl+R`。点击“添加命令”按钮之后进入添加命令界面。
 
 
 ### 添加你自己的指令
 
-![添加命令](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand.png)
+![添加文件](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand_File.png)  
+![添加文件夹](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand_Folder.png)  
+![添加URL](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/addCommand_URL.png)
 
-在这个界面你可以在启动指令的框中输入你想自定义的指令如`vs|vs2015| Visual Studio`，你可以为  
+这个界面和1.0版本有了一点不同，你可以在启动指令的框中输入你想自定义的指令如`vs|vs2015| Visual Studio`，  
 
-一个文件定义多个指令，指令之间用`|`分隔，然后选择你要打开的文件（文件打开的方式和你电脑  
+你可以为一个文件定义多个指令，指令之间用`|`分隔，然后你可以选择打开一个文件（文件打开的方式  
 
-的默认方式相同，如果你的电脑不能识别文件，则会让你手动选择），**目前无法选择Internet快键方式**
+和你电脑的默认方式相同，如果你的电脑不能识别文件，则会让你手动选择），还是一个文件夹，或者  
 
-**(.url文件)。**
+是一个URL（网页的浏览器为你的默认浏览器），**目前无法选择Internet快键方式(.url文件)，但是你可以**  
 
+**直接查看它的`属性->Web文档`中的URL，将它直接复制到URL选项下的文本框中。**  
+
+*关于URL选项，它有点类似于URL Schemes，比如你可以在URL选项下输入`steam://`，它会打开steam这个软件，*
+
+*如果你的电脑上没有装steam，那么它会提醒你访问商店以下载*
+
+### 管理你的命令
+
+![管理命令](https://github.com/Jack54s/MagicBoot/blob/master/SoftwareSnap/commandView.png)  
+
+在这个界面你可以看到你现在所添加的所有命令，你可以勾选删除它们，或者Ctrl或Shift选中右键删除
 
 ### ini配置文件
 
@@ -74,7 +87,7 @@
 
 * 支持在设置里查看和删除命令，支持批量删除
 * 现在可以为程序添加参数，或者使用程序打开某个文件
-* 支持文件夹或网址作为指令打开的目标
+* 支持文件夹或URL作为指令打开的目标
 * 优化了窗体的实例化，现在每个窗口只能打开一个
 * 现在快捷键可以打开或关闭窗口
 

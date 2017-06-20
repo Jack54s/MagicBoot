@@ -183,7 +183,7 @@ namespace MagicBoot
                     }
                     else
                     {
-                        if (Directory.Exists(progargs[1].Trim()) || progargs[1].Contains("http:\\"))
+                        if (Directory.Exists(progargs[1].Trim()) || progargs[1].Contains(":"))
                         {
                             try
                             {

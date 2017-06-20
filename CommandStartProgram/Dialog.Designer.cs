@@ -97,7 +97,7 @@
             this.resourceType.Items.AddRange(new object[] {
             "文件",
             "文件夹",
-            "网址"});
+            "URL"});
             this.resourceType.Location = new System.Drawing.Point(40, 32);
             this.resourceType.Margin = new System.Windows.Forms.Padding(0);
             this.resourceType.Name = "resourceType";
@@ -168,7 +168,6 @@
             this.webSite.Name = "webSite";
             this.webSite.Size = new System.Drawing.Size(329, 27);
             this.webSite.TabIndex = 12;
-            this.webSite.Text = "http:\\\\";
             // 
             // addCommand
             // 

@@ -55,9 +55,9 @@ namespace MagicBoot
             LoadConfig writeConfig;
             String[] commandArray;
 
-            switch (resourceType.Text)
+            switch (resourceType.SelectedIndex)
             {
-                case "文件":
+                case 0:
                     command = Command.Text;
                     String fileName = program.FileName;
                     if (command.Trim() == "")
@@ -120,7 +120,7 @@ namespace MagicBoot
                     hi.Close();
                     Close();
                     break;
-                case "文件夹":
+                case 1:
                     command = Command.Text;
                     String folderName = "explorer.exe?" + folder.Text;
                     if (command.Trim() == "")
@@ -168,30 +168,28 @@ namespace MagicBoot
                     hi.Close();
                     Close();
                     break;
-                case "网址":
+                case 2:
                     command = Command.Text;
-                    String website = webSite.Text;
-                    if (!(website.Contains("http:\\") || website.Contains("https:\\") || website.Contains("http://") || website.Contains("https://")))
+                    String url = webSite.Text;
+                    if (url.Trim() == "")
                     {
-                        MessageBox.Show(website + "网址格式错误！请加上协议头。");
+                        hi.setHint("请输入URL！");
+                        hi.Show();
                         return;
                     }
-                    website = website.Replace("https:", "http:");
-                    website = website.Replace("/", "\\");
-                    String site = "explorer.exe?" + website;
+                    if (!url.Contains(":"))
+                    {
+                        MessageBox.Show(url + "URL格式错误！请加上协议头。");
+                        return;
+                    }
+                    String site = "explorer.exe?" + url;
                     if (command.Trim() == "")
                     {
                         hi.setHint("请输入指令！");
                         hi.Show();
                         return;
                     }
-                    if (webSite.Text.Replace("http:\\\\", "").Trim() == "" || webSite.Text.Replace("https:\\\\", "").Trim() == "" ||
-                        webSite.Text.Replace("http://", "").Trim() == "" || webSite.Text.Replace("https://", "").Trim() == "")
-                    {
-                        hi.setHint("请输入网址！");
-                        hi.Show();
-                        return;
-                    }
+                    
                     writeConfig = new LoadConfig(Application.StartupPath + @"\command.ini");
                     commandArray = command.Split('|');
                     foreach (String comm in commandArray)
