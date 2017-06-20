@@ -24,6 +24,9 @@ namespace MagicBoot
             return _instance;
         }
 
+        /// <summary>
+        /// 读取ini文件初始化列表
+        /// </summary>
         public void InitList()
         {
             String temp = ini.getAllKeyInIni("Command List");
@@ -44,6 +47,11 @@ namespace MagicBoot
             this.commandList.Items.AddRange(commands);
         }
 
+        /// <summary>
+        /// 添加按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Add_Click(object sender, EventArgs e)
         {
             addCommand ac = addCommand.getInstance();
@@ -51,6 +59,11 @@ namespace MagicBoot
             ac.Show();
         }
 
+        /// <summary>
+        /// 添加命令窗口关闭时触发事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Ac_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -64,6 +77,11 @@ namespace MagicBoot
             }
         }
 
+        /// <summary>
+        /// 删除按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Remove_Click(object sender, EventArgs e)
         {
             this.commandList.BeginUpdate();
@@ -85,6 +103,11 @@ namespace MagicBoot
             this.commandList.Columns[1].Width = this.commandList.ClientSize.Width - this.commandList.Columns[0].Width;
         }
 
+        /// <summary>
+        /// 右键删除单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveItem(object sender, EventArgs e)
         {
             this.commandList.BeginUpdate();
@@ -96,6 +119,11 @@ namespace MagicBoot
             this.commandList.EndUpdate();
         }
 
+        /// <summary>
+        /// 右击刷新单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReloadList(object sender, EventArgs e)
         {
             try

@@ -38,6 +38,10 @@ namespace MagicBoot
             }
         }
 
+        /// <summary>
+        /// 找到已经打开的实例
+        /// </summary>
+        /// <returns></returns>
         private static Process RunningInstance()
         {
             Process current = Process.GetCurrentProcess();
@@ -55,6 +59,10 @@ namespace MagicBoot
             return null;
         }
 
+        /// <summary>
+        /// 将已打开的实例放到前台
+        /// </summary>
+        /// <param name="instance"></param>
         private static void HandleRunningInstance(Process instance)
         {
             IntPtr windowHandle = FindWindow(null, "MagicBoot");

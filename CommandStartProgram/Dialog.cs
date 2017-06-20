@@ -11,6 +11,7 @@ namespace MagicBoot
         private addCommand()
         {
             InitializeComponent();
+            this.resourceType.SelectedIndex = this.resourceType.Items.IndexOf("文件");
             hi = new HintDialog();
         }
 
@@ -30,17 +31,16 @@ namespace MagicBoot
         /// <param name="e"></param>
         private void selectProgram_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            String fileName = openFileDialog1.FileName;
+            program.ShowDialog();
+            String fileName = program.FileName;
             if (System.IO.File.Exists(fileName))
             {
-                selectProgram.Text = fileName;
+                programName.Text = fileName;
             }
             if (fileName != "")
             {
-                selectProgram.BorderStyle = BorderStyle.None;
-                selectProgram.AutoSize = false;
-                selectProgram.Size = new System.Drawing.Size(this.Width - 110, selectProgram.Height);
+                programName.BorderStyle = BorderStyle.None;
+                programName.AutoSize = false;
             }
         }
 
@@ -51,52 +51,262 @@ namespace MagicBoot
         /// <param name="e"></param>
         private void addProgram_Click(object sender, EventArgs e)
         {
-            String command = Command.Text;
-            String fileName = openFileDialog1.FileName;
-            if (command.Trim() == "")
+            String command;
+            LoadConfig writeConfig;
+            String[] commandArray;
+
+            switch (resourceType.Text)
             {
-                hi.setHint("请输入指令！");
-                hi.Show();
-                return;
-            }
-            if (fileName == "")
-            {
-                hi.setHint("请选择程序！");
-                hi.Show();
-                return;
-            }
-            LoadConfig writeConfig = new LoadConfig(Application.StartupPath + @"\command.ini");
-            String[] commandArray = command.Split('|');
-            foreach(String comm in commandArray)
-            {
-                if(comm.Trim() == "")
-                {
-                    continue;
-                }
-                if(comm.Trim().Contains("=") == true)
-                {
-                    MessageBox.Show("指令中不得含有'='字符");
-                    continue;
-                }
-                if (writeConfig.ReadIni("Command List", comm) != "")
-                {
-                    DialogResult dr = MessageBox.Show(comm + "指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if(dr == DialogResult.OK)
+                case "文件":
+                    command = Command.Text;
+                    String fileName = program.FileName;
+                    if (command.Trim() == "")
                     {
-                        writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
+                        hi.setHint("请输入指令！");
+                        hi.Show();
+                        return;
                     }
-                    else if(dr == DialogResult.Cancel)
+                    if (fileName == "")
                     {
-                        continue;
+                        hi.setHint("请选择程序！");
+                        hi.Show();
+                        return;
                     }
-                }
-                else
-                {
-                    writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
-                }
+                    writeConfig = new LoadConfig(Application.StartupPath + @"\command.ini");
+                    commandArray = command.Split('|');
+                    foreach (String comm in commandArray)
+                    {
+                        if (comm.Trim() == "")
+                        {
+                            continue;
+                        }
+                        if (comm.Trim().Contains("=") == true)
+                        {
+                            MessageBox.Show("指令中不得含有'='字符");
+                            continue;
+                        }
+                        if (args.Text.Trim() != "")
+                        {
+                            fileName += "?" + args.Text.Trim();
+                        }
+                        if (resource.Text.Trim() != "")
+                        {
+                            if (args.Text.Trim() == "")
+                            {
+                                fileName += "?" + resource.Text.Trim();
+                            }
+                            else
+                            {
+                                fileName += " " + resource.Text.Trim();
+                            }
+                        }
+                        if (writeConfig.ReadIni("Command List", comm) != "")
+                        {
+                            DialogResult dr = MessageBox.Show(comm + "指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                            if (dr == DialogResult.OK)
+                            {
+                                writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
+                            }
+                            else if (dr == DialogResult.Cancel)
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            writeConfig.IniWriteValue("Command List", comm.Trim(), fileName);
+                        }
+                    }
+                    hi.Close();
+                    Close();
+                    break;
+                case "文件夹":
+                    command = Command.Text;
+                    String folderName = "explorer.exe?" + folder.Text;
+                    if (command.Trim() == "")
+                    {
+                        hi.setHint("请输入指令！");
+                        hi.Show();
+                        return;
+                    }
+                    if (folder.Text.Trim() == "")
+                    {
+                        hi.setHint("请选择文件夹！");
+                        hi.Show();
+                        return;
+                    }
+                    writeConfig = new LoadConfig(Application.StartupPath + @"\command.ini");
+                    commandArray = command.Split('|');
+                    foreach (String comm in commandArray)
+                    {
+                        if (comm.Trim() == "")
+                        {
+                            continue;
+                        }
+                        if (comm.Trim().Contains("=") == true)
+                        {
+                            MessageBox.Show("指令中不得含有'='字符");
+                            continue;
+                        }
+                        if (writeConfig.ReadIni("Command List", comm) != "")
+                        {
+                            DialogResult dr = MessageBox.Show(comm + "指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                            if (dr == DialogResult.OK)
+                            {
+                                writeConfig.IniWriteValue("Command List", comm.Trim(), folderName);
+                            }
+                            else if (dr == DialogResult.Cancel)
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            writeConfig.IniWriteValue("Command List", comm.Trim(), folderName);
+                        }
+                    }
+                    hi.Close();
+                    Close();
+                    break;
+                case "网址":
+                    command = Command.Text;
+                    String website = webSite.Text;
+                    if (!(website.Contains("http:\\") || website.Contains("https:\\") || website.Contains("http://") || website.Contains("https://")))
+                    {
+                        MessageBox.Show(website + "网址格式错误！请加上协议头。");
+                        return;
+                    }
+                    website = website.Replace("https:", "http:");
+                    website = website.Replace("/", "\\");
+                    String site = "explorer.exe?" + website;
+                    if (command.Trim() == "")
+                    {
+                        hi.setHint("请输入指令！");
+                        hi.Show();
+                        return;
+                    }
+                    if (webSite.Text.Replace("http:\\\\", "").Trim() == "" || webSite.Text.Replace("https:\\\\", "").Trim() == "" ||
+                        webSite.Text.Replace("http://", "").Trim() == "" || webSite.Text.Replace("https://", "").Trim() == "")
+                    {
+                        hi.setHint("请输入网址！");
+                        hi.Show();
+                        return;
+                    }
+                    writeConfig = new LoadConfig(Application.StartupPath + @"\command.ini");
+                    commandArray = command.Split('|');
+                    foreach (String comm in commandArray)
+                    {
+                        if (comm.Trim() == "")
+                        {
+                            continue;
+                        }
+                        if (comm.Trim().Contains("=") == true)
+                        {
+                            MessageBox.Show("指令中不得含有'='字符");
+                            continue;
+                        }
+                        if (writeConfig.ReadIni("Command List", comm) != "")
+                        {
+                            DialogResult dr = MessageBox.Show(comm + "指令已存在，是否覆盖？", "咒语记混了吗？", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                            if (dr == DialogResult.OK)
+                            {
+                                writeConfig.IniWriteValue("Command List", comm.Trim(), site);
+                            }
+                            else if (dr == DialogResult.Cancel)
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            writeConfig.IniWriteValue("Command List", comm.Trim(), site);
+                        }
+                    }
+                    hi.Close();
+                    Close();
+                    break;
+                default:
+                    MessageBox.Show("请选择类型！");
+                    break;
             }
-            hi.Close();
-            this.Close();
+            
+        }
+
+        /// <summary>
+        /// 选择文件作为参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void selectResource(object sender, EventArgs e)
+        {
+            resourceFile.ShowDialog();
+            String fileName = resourceFile.FileName;
+            if (System.IO.File.Exists(fileName))
+            {
+                resource.Text = fileName;
+            }
+            if (fileName != "")
+            {
+                resource.BorderStyle = BorderStyle.None;
+                resource.AutoSize = false;
+                resource.Size = new System.Drawing.Size(329, resource.Height);
+            }
+        }
+
+        /// <summary>
+        /// 打开文件夹选择框
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openFolderDialog(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.ShowDialog();
+            String folderName = folderBrowserDialog1.SelectedPath;
+            if (folderName != "")
+            {
+                folder.Text = folderName;
+                folder.BorderStyle = BorderStyle.None;
+            }
+        }
+
+        /// <summary>
+        /// 多选框发生变化时，界面相应变化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectedItem_Changed(object sender, EventArgs e)
+        {
+            switch (resourceType.SelectedIndex)
+            {
+                case 0:
+                    Height = 230;
+                    folder.Visible = false;
+                    webSite.Visible = false;
+                    programName.Visible = true;
+                    argsLable.Visible = true;
+                    args.Visible = true;
+                    resource.Visible = true;
+                    break;
+                case 1:
+                    Height = 167;
+                    folder.Visible = true;
+                    webSite.Visible = false;
+                    programName.Visible = false;
+                    argsLable.Visible = false;
+                    args.Visible = false;
+                    resource.Visible = false;
+                    break;
+                case 2:
+                    Height = 167;
+                    folder.Visible = false;
+                    webSite.Visible = true;
+                    programName.Visible = false;
+                    argsLable.Visible = false;
+                    args.Visible = false;
+                    resource.Visible = false;
+                    break;
+
+            }
         }
     }
 }

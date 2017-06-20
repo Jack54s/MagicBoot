@@ -159,21 +159,46 @@ namespace MagicBoot
 
                 if (fileName != "")
                 {
-                    if (File.Exists(fileName))
+                    String[] progargs = fileName.Split('?');
+                    String program = progargs[0];
+                    
+                    if (progargs.Length < 2)
                     {
-                        try
+                        if (File.Exists(program))
                         {
-                            System.Diagnostics.Process.Start(fileName);
+                            try
+                            {
+                                System.Diagnostics.Process.Start(program);
+                            }
+                            catch (Exception pse)
+                            {
+                                MessageBox.Show(pse.Message);
+                            }
                         }
-                        catch (Exception pse)
+                        else
                         {
-                            MessageBox.Show(pse.Message);
+                            hi.setHint("文件“" + program + "”不存在！");
+                            hi.Show();
                         }
                     }
                     else
                     {
-                        hi.setHint("文件“" + fileName + "”不存在！");
-                        hi.Show();
+                        if (Directory.Exists(progargs[1].Trim()) || progargs[1].Contains("http:\\"))
+                        {
+                            try
+                            {
+                                System.Diagnostics.Process.Start(program, progargs[1].Trim());
+                            }
+                            catch (Exception pse)
+                            {
+                                MessageBox.Show(pse.Message);
+                            }
+                        }
+                        else
+                        {
+                            hi.setHint("路径" + progargs[1].Trim() + "不存在");
+                            hi.Show();
+                        }
                     }
                 }
                 else
@@ -199,7 +224,14 @@ namespace MagicBoot
                     switch (m.WParam.ToString())
                     {
                         case "100":
-                            this.Console_Display(new object(), new EventArgs());
+                            if(this.Visible == false)
+                            {
+                                this.Console_Display(new object(), new EventArgs());
+                            }
+                            else
+                            {
+                                this.Close();
+                            }
                             break;
                         default: break;
                     }

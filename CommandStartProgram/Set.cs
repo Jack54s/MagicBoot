@@ -207,6 +207,11 @@ namespace MagicBoot
             }
         }
 
+        /// <summary>
+        /// 管理命令按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewCommand_Click(object sender, EventArgs e)
         {
             commandView cv = commandView.getInstance();

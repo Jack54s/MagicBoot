@@ -66,26 +66,26 @@
             this.设置ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(109, 76);
+            this.Menu.Size = new System.Drawing.Size(115, 82);
             // 
             // 显示ToolStripMenuItem
             // 
             this.显示ToolStripMenuItem.Name = "显示ToolStripMenuItem";
-            this.显示ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.显示ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.显示ToolStripMenuItem.Text = "显示";
             this.显示ToolStripMenuItem.Click += new System.EventHandler(this.Console_Display);
             // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.设置ToolStripMenuItem.Text = "设置";
             this.设置ToolStripMenuItem.Click += new System.EventHandler(this.Set_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.MenuExit);
             // 
