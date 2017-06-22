@@ -58,10 +58,6 @@ namespace MagicBoot
             switch (resourceType.SelectedIndex)
             {
                 case 0:
-                    if(resource.Text == "选择文件")
-                    {
-                        resource.Text = "";
-                    }
                     command = Command.Text;
                     String fileName = program.FileName;
                     if (command.Trim() == "")
@@ -93,7 +89,7 @@ namespace MagicBoot
                         {
                             fileName += "?" + args.Text.Trim();
                         }
-                        if (resource.Text.Trim() != "")
+                        if (resource.Text != "选择文件" && resource.Text.Trim() != "")
                         {
                             if (args.Text.Trim() == "")
                             {
