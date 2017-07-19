@@ -20,6 +20,8 @@ namespace MagicBoot
             config = new LoadConfig(Application.StartupPath + @"\command.ini");
             hi = new HintDialog();
             SetHotkey(config, Handle);
+            this.Hide();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         /// <summary>
@@ -183,21 +185,13 @@ namespace MagicBoot
                     }
                     else
                     {
-                        if (Directory.Exists(progargs[1].Trim()) || progargs[1].Contains(":"))
+                        try
                         {
-                            try
-                            {
-                                System.Diagnostics.Process.Start(program, progargs[1].Trim());
-                            }
-                            catch (Exception pse)
-                            {
-                                MessageBox.Show(pse.Message);
-                            }
+                            System.Diagnostics.Process.Start(program, progargs[1].Trim());
                         }
-                        else
+                        catch (Exception pse)
                         {
-                            hi.setHint("路径" + progargs[1].Trim() + "不存在");
-                            hi.Show();
+                            MessageBox.Show(pse.Message);
                         }
                     }
                 }
