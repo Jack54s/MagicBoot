@@ -20,8 +20,6 @@ namespace MagicBoot
             config = new LoadConfig(Application.StartupPath + @"\command.ini");
             hi = new HintDialog();
             SetHotkey(config, Handle);
-            this.Hide();
-            this.WindowState = FormWindowState.Minimized;
         }
 
         /// <summary>
