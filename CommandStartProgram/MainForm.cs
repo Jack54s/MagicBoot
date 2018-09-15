@@ -156,6 +156,7 @@ namespace MagicBoot
                 e.Handled = true;
                 String comtxt = command.Text.Trim();
                 String fileName = config.ReadIni("Command List", comtxt);
+                String searchEngine = config.ReadIni("searchEngine", "searchUrl");
 
                 if (fileName != "")
                 {
@@ -164,20 +165,13 @@ namespace MagicBoot
                     
                     if (progargs.Length < 2)
                     {
-                        if (File.Exists(program))
+                        try
                         {
-                            try
-                            {
-                                System.Diagnostics.Process.Start(program);
-                            }
-                            catch (Exception pse)
-                            {
-                                MessageBox.Show(pse.Message);
-                            }
+                            System.Diagnostics.Process.Start(program);
                         }
-                        else
+                        catch (Exception pse)
                         {
-                            hi.setHint("文件“" + program + "”不存在！");
+                            hi.setHint(pse.Message.Substring(0, pse.Message.Length -1) + "或文件夹。");
                             hi.Show();
                         }
                     }
@@ -189,14 +183,26 @@ namespace MagicBoot
                         }
                         catch (Exception pse)
                         {
-                            MessageBox.Show(pse.Message);
+                            hi.setHint(pse.Message);
+                            hi.Show();
                         }
                     }
                 }
                 else
                 {
-                    hi.setHint("记忆有误！");
-                    hi.Show();
+                    if (searchEngine.Trim().Equals(""))
+                    {
+                        searchEngine = "www.google.com/search?q=";
+                    }
+                    try
+                    {
+                        System.Diagnostics.Process.Start(searchEngine + comtxt);
+                    }
+                    catch (Exception pse)
+                    {
+                        hi.setHint("搜索引擎不可用。");
+                        hi.Show();
+                    }
                 }
                 command.Text = "";
             }

@@ -62,6 +62,9 @@ namespace MagicBoot
                 hotKey += k;
             }
             HotKeyText.Text = hotKey;
+
+            String searchUrl = config.ReadIni("searchEngine", "searchUrl");
+            searchUrlText.Text = searchUrl;
         }
         /// <summary>
         /// 添加命令按钮事件
@@ -192,6 +195,17 @@ namespace MagicBoot
                         String key = hotKey.Substring(hotKey.LastIndexOf('+') + 1);
                         key = ((Keys)Enum.Parse(typeof(Keys), key)).ToString();
                         config.IniWriteValue("Set", "KeyCode", key);
+                    }
+                    catch (ArgumentException excp)
+                    {
+                        MessageBox.Show(excp.Message);
+                    }
+                }
+                if (!searchUrlText.Text.Equals(""))
+                {
+                    try
+                    {
+                        config.IniWriteValue("searchEngine", "searchUrl", searchUrlText.Text);
                     }
                     catch (ArgumentException excp)
                     {

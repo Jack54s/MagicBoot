@@ -37,6 +37,8 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.Apply = new System.Windows.Forms.Button();
             this.ViewCommand = new System.Windows.Forms.Button();
+            this.searchEngineLabel = new System.Windows.Forms.Label();
+            this.searchUrlText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // startWithBoot
@@ -46,7 +48,7 @@
             this.startWithBoot.Location = new System.Drawing.Point(8, 6);
             this.startWithBoot.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.startWithBoot.Name = "startWithBoot";
-            this.startWithBoot.Size = new System.Drawing.Size(91, 24);
+            this.startWithBoot.Size = new System.Drawing.Size(75, 21);
             this.startWithBoot.TabIndex = 3;
             this.startWithBoot.Text = "开机启动";
             this.startWithBoot.UseVisualStyleBackColor = true;
@@ -68,7 +70,7 @@
             this.HotKeyText.Margin = new System.Windows.Forms.Padding(0, 4, 3, 4);
             this.HotKeyText.Name = "HotKeyText";
             this.HotKeyText.ReadOnly = true;
-            this.HotKeyText.Size = new System.Drawing.Size(173, 27);
+            this.HotKeyText.Size = new System.Drawing.Size(173, 23);
             this.HotKeyText.TabIndex = 5;
             this.HotKeyText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HotKeyText_KeyDown);
             this.HotKeyText.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HotKeyText_KeyUp);
@@ -76,7 +78,7 @@
             // Confirm
             // 
             this.Confirm.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Confirm.Location = new System.Drawing.Point(49, 60);
+            this.Confirm.Location = new System.Drawing.Point(49, 90);
             this.Confirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(57, 27);
@@ -88,7 +90,7 @@
             // addCommand
             // 
             this.addCommand.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.addCommand.Location = new System.Drawing.Point(8, 30);
+            this.addCommand.Location = new System.Drawing.Point(8, 60);
             this.addCommand.Margin = new System.Windows.Forms.Padding(0);
             this.addCommand.Name = "addCommand";
             this.addCommand.Size = new System.Drawing.Size(70, 25);
@@ -99,7 +101,7 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(123, 60);
+            this.Cancel.Location = new System.Drawing.Point(123, 90);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(57, 27);
             this.Cancel.TabIndex = 8;
@@ -109,7 +111,7 @@
             // 
             // Apply
             // 
-            this.Apply.Location = new System.Drawing.Point(228, 60);
+            this.Apply.Location = new System.Drawing.Point(228, 90);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(57, 27);
             this.Apply.TabIndex = 9;
@@ -119,7 +121,7 @@
             // 
             // ViewCommand
             // 
-            this.ViewCommand.Location = new System.Drawing.Point(90, 29);
+            this.ViewCommand.Location = new System.Drawing.Point(90, 60);
             this.ViewCommand.Margin = new System.Windows.Forms.Padding(0);
             this.ViewCommand.Name = "ViewCommand";
             this.ViewCommand.Size = new System.Drawing.Size(70, 25);
@@ -128,13 +130,31 @@
             this.ViewCommand.UseVisualStyleBackColor = true;
             this.ViewCommand.Click += new System.EventHandler(this.ViewCommand_Click);
             // 
+            // searchEngineLabel
+            // 
+            this.searchEngineLabel.AutoSize = true;
+            this.searchEngineLabel.Location = new System.Drawing.Point(10, 36);
+            this.searchEngineLabel.Name = "searchEngineLabel";
+            this.searchEngineLabel.Size = new System.Drawing.Size(68, 17);
+            this.searchEngineLabel.TabIndex = 11;
+            this.searchEngineLabel.Text = "搜索引擎：";
+            // 
+            // searchUrlText
+            // 
+            this.searchUrlText.Location = new System.Drawing.Point(74, 33);
+            this.searchUrlText.Name = "searchUrlText";
+            this.searchUrlText.Size = new System.Drawing.Size(254, 23);
+            this.searchUrlText.TabIndex = 12;
+            // 
             // Set
             // 
             this.AcceptButton = this.Confirm;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 88);
+            this.ClientSize = new System.Drawing.Size(331, 118);
             this.ControlBox = false;
+            this.Controls.Add(this.searchUrlText);
+            this.Controls.Add(this.searchEngineLabel);
             this.Controls.Add(this.ViewCommand);
             this.Controls.Add(this.Apply);
             this.Controls.Add(this.Cancel);
@@ -165,5 +185,7 @@
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button Apply;
         private System.Windows.Forms.Button ViewCommand;
+        private System.Windows.Forms.Label searchEngineLabel;
+        private System.Windows.Forms.TextBox searchUrlText;
     }
 }

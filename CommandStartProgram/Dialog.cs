@@ -122,7 +122,7 @@ namespace MagicBoot
                     break;
                 case 1:
                     command = Command.Text;
-                    String folderName = "explorer.exe?" + folder.Text;
+                    String folderName = folder.Text;
                     if (command.Trim() == "")
                     {
                         hi.setHint("请输入指令！");
@@ -170,19 +170,18 @@ namespace MagicBoot
                     break;
                 case 2:
                     command = Command.Text;
-                    String url = webSite.Text;
-                    if (url.Trim() == "")
+                    String site = webSite.Text;
+                    if (site.Trim() == "")
                     {
                         hi.setHint("请输入URL！");
                         hi.Show();
                         return;
                     }
-                    if (!url.Contains(":"))
+                    if (!site.Contains(":") || !site.Contains("www."))
                     {
-                        MessageBox.Show(url + "URL格式错误！请加上协议头。");
+                        MessageBox.Show(site + "URL格式错误！请加上协议头（如http://)。");
                         return;
                     }
-                    String site = "explorer.exe?" + url;
                     if (command.Trim() == "")
                     {
                         hi.setHint("请输入指令！");

@@ -41,10 +41,15 @@ namespace MagicBoot
                     file.WriteLine("; Some set about program as following.");
                     file.WriteLine("; Change it cautious!");
                     file.WriteLine("[Set]");
-                    file.WriteLine("Ctrl =True");
+                    file.WriteLine("Ctrl=True");
                     file.WriteLine("Alt=False");
                     file.WriteLine("Shift=False");
                     file.WriteLine("KeyCode=R");
+                    file.WriteLine("");
+                    file.WriteLine("; Set searchEngine.");
+                    file.WriteLine("; While command is not found, search text on web.");
+                    file.WriteLine("[searchEngine]");
+                    file.WriteLine("searchUrl=www.google.com/search?q");
                     file.Flush();
                     file.Close();
                 }
