@@ -26,5 +26,15 @@ namespace MagicBoot
         {
             this.Hide();
         }
+
+        /// <summary>
+        /// 改变窗口关闭按钮的行为
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

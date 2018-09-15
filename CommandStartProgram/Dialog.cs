@@ -68,7 +68,7 @@ namespace MagicBoot
                     }
                     if (fileName == "")
                     {
-                        hi.setHint("请选择程序！");
+                        hi.setHint("请选择文件！");
                         hi.Show();
                         return;
                     }
@@ -82,7 +82,8 @@ namespace MagicBoot
                         }
                         if (comm.Trim().Contains("=") == true)
                         {
-                            MessageBox.Show("指令中不得含有'='字符");
+                            hi.setHint("指令中不得含有'='字符");
+                            hi.Show();
                             continue;
                         }
                         if (args.Text.Trim() != "")
@@ -145,7 +146,8 @@ namespace MagicBoot
                         }
                         if (comm.Trim().Contains("=") == true)
                         {
-                            MessageBox.Show("指令中不得含有'='字符");
+                            hi.setHint("指令中不得含有'='字符");
+                            hi.Show();
                             continue;
                         }
                         if (writeConfig.ReadIni("Command List", comm) != "")
@@ -177,9 +179,10 @@ namespace MagicBoot
                         hi.Show();
                         return;
                     }
-                    if (!site.Contains(":") || !site.Contains("www."))
+                    if (!site.Contains(":") && !site.Contains("www."))
                     {
-                        MessageBox.Show(site + "URL格式错误！请加上协议头（如http://)。");
+                        hi.setHint(site + "\nURL格式错误！请加上协议头（如http://)。");
+                        hi.Show();
                         return;
                     }
                     if (command.Trim() == "")
@@ -199,7 +202,8 @@ namespace MagicBoot
                         }
                         if (comm.Trim().Contains("=") == true)
                         {
-                            MessageBox.Show("指令中不得含有'='字符");
+                            hi.setHint("指令中不得含有'='字符");
+                            hi.Show();
                             continue;
                         }
                         if (writeConfig.ReadIni("Command List", comm) != "")
@@ -223,7 +227,8 @@ namespace MagicBoot
                     Close();
                     break;
                 default:
-                    MessageBox.Show("请选择类型！");
+                    hi.setHint("请选择类型！");
+                    hi.Show();
                     break;
             }
             
