@@ -49,7 +49,7 @@ namespace MagicBoot
                     file.WriteLine("; Set searchEngine.");
                     file.WriteLine("; While command is not found, search text on web.");
                     file.WriteLine("[searchEngine]");
-                    file.WriteLine("searchUrl=www.google.com/search?q");
+                    file.WriteLine("searchUrl=www.google.com/search?q=");
                     file.Flush();
                     file.Close();
                 }
